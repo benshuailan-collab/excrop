@@ -1,4 +1,4 @@
-// ===== Excrop Premium Website — main.js =====
+// ===== Excrop Premium Website V3 - main.js =====
 (function(){
   'use strict';
   let currentLang='en';
@@ -26,7 +26,6 @@
     entries.forEach(e=>{
       if(e.isIntersecting){
         e.target.classList.add('visible');
-        // Trigger counter for stat numbers
         const num=e.target.querySelector('[data-count]');
         if(num && !num.dataset.counted){
           animateCount(num);
@@ -36,7 +35,6 @@
     });
   },{threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-  // Also observe hero stats directly
   document.querySelectorAll('[data-count]').forEach(el=>{
     const parent=el.closest('.hero-stats');
     if(parent && !parent.classList.contains('reveal')){
@@ -83,6 +81,16 @@
     });
   });
 
+  // ===== FAQ Accordion =====
+  document.querySelectorAll('.faq-question').forEach(q=>{
+    q.addEventListener('click',function(){
+      const item=this.parentElement;
+      const wasActive=item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));
+      if(!wasActive)item.classList.add('active');
+    });
+  });
+
   // ===== Quote Calculator =====
   const qVariety=document.getElementById('qVariety');
   const qSize=document.getElementById('qSize');
@@ -90,8 +98,8 @@
   const qPack=document.getElementById('qPack');
   const quotePrice=document.getElementById('quotePrice');
   const quoteSubmit=document.getElementById('quoteSubmit');
+  const quoteSuccess=document.getElementById('quoteSuccess');
 
-  // Base prices (USD/ton, FOB Qingdao) — indicative
   const basePrices={
     'normal':{'4.5':680,'5.0':730,'5.5':820,'6.0':950,'6.5':1100},
     'pure':{'4.5':750,'5.0':820,'5.5':920,'6.0':1080,'6.5':1250}
@@ -103,25 +111,23 @@
     const size=qSize.value;
     const qty=parseInt(qQty.value)||0;
     const pack=qPack.value;
-    if(qty<=0){quotePrice.textContent='$ —';return;}
+    if(qty<=0){quotePrice.textContent='$ -';return;}
     let pricePerTon=basePrices[variety][size]+packAdjust[pack];
-    // Volume discount
     if(qty>=56)pricePerTon-=30;
     if(qty>=84)pricePerTon-=20;
     const total=pricePerTon*qty;
     const low=Math.round(total*0.92);
     const high=Math.round(total*1.08);
-    quotePrice.textContent='$'+low.toLocaleString()+' — $'+high.toLocaleString();
+    quotePrice.textContent='$'+low.toLocaleString()+' - $'+high.toLocaleString();
     quotePrice.style.fontSize='1.8rem';
   }
 
   [qVariety,qSize,qQty,qPack].forEach(el=>{
     if(el)el.addEventListener('input',calcQuote);
   });
-  // Initial calc
   if(qVariety)calcQuote();
 
-  // ===== Quote Submit =====
+  // ===== Quote Submit with Validation =====
   if(quoteSubmit){
     quoteSubmit.addEventListener('click',()=>{
       const variety=qVariety.options[qVariety.selectedIndex].text;
@@ -129,28 +135,40 @@
       const qty=qQty.value;
       const pack=qPack.options[qPack.selectedIndex].text;
       const port=document.getElementById('qPort').value||'TBD';
+      const company=document.getElementById('qCompany').value||'-';
       const name=document.getElementById('qName').value||'';
       const email=document.getElementById('qEmail').value||'';
-      const phone=document.getElementById('qPhone').value||'';
+      const phone=document.getElementById('qPhone').value||'-';
+      const message=document.getElementById('qMessage').value||'-';
       const price=quotePrice.textContent;
 
-      if(!name||!email){
-        alert('Please fill in your name and email to get a quote.');
+      // Validation
+      const errors=[];
+      if(!name)errors.push('Name');
+      if(!email)errors.push('Email');
+      else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))errors.push('Valid Email');
+      if(!qty||qty<=0)errors.push('Quantity');
+      if(!port)errors.push('Destination Port');
+
+      if(errors.length>0){
+        alert('Please fill in required fields: '+errors.join(', '));
         return;
       }
 
       // Build WhatsApp message
-      const msg=`🧄 New Garlic Inquiry from Excrop.com\n\n`+
-        `Variety: ${variety}\n`+
-        `Size: ${size}\n`+
-        `Quantity: ${qty} tons\n`+
-        `Packaging: ${pack}\n`+
-        `Destination: ${port}\n`+
-        `Estimated Price: ${price}\n\n`+
-        `Name: ${name}\n`+
-        `Email: ${email}\n`+
-        `${phone?`Phone: ${phone}\n`:''}`;
-      const waUrl=`https://wa.me/8613658980612?text=${encodeURIComponent(msg)}`;
+      const msg='NEW GARLIC INQUIRY from Excrop.com\n\n'+
+        'Variety: '+variety+'\n'+
+        'Size: '+size+'\n'+
+        'Quantity: '+qty+' tons\n'+
+        'Packaging: '+pack+'\n'+
+        'Destination: '+port+'\n'+
+        'Estimated Price: '+price+'\n\n'+
+        'Company: '+company+'\n'+
+        'Name: '+name+'\n'+
+        'Email: '+email+'\n'+
+        'Phone: '+phone+'\n'+
+        'Notes: '+message;
+      const waUrl='https://wa.me/8613658980612?text='+encodeURIComponent(msg);
 
       // Send email via Formsubmit
       fetch('https://formsubmit.co/ajax/benshuailan@gmail.com',{
@@ -161,22 +179,20 @@
           _template:'table',
           Variety:variety,Size:size,Quantity:qty+' tons',Packaging:pack,
           Destination:port,Estimated_Price:price,
-          Name:name,Email:email,Phone:phone||'-'
+          Company:company,Name:name,Email:email,Phone:phone,Notes:message
         })
       }).catch(err=>console.error('Email error:',err));
 
-      // Button feedback
-      const original=quoteSubmit.textContent;
-      quoteSubmit.textContent='✓ Inquiry Sent! Opening WhatsApp...';
-      quoteSubmit.style.background='#2D6A4F';
+      // Button feedback + success message
+      quoteSubmit.textContent='Sending...';
       quoteSubmit.disabled=true;
+      quoteSubmit.style.opacity='0.7';
 
       setTimeout(()=>{
+        quoteSuccess.style.display='flex';
+        quoteSubmit.style.display='none';
         window.open(waUrl,'_blank');
-        quoteSubmit.textContent=original;
-        quoteSubmit.style.background='';
-        quoteSubmit.disabled=false;
-      },1500);
+      },1200);
     });
   }
 
