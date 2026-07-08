@@ -1,0 +1,21 @@
+# robots.txt for excrop.com
+# Allow all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+
+# Explicitly allow Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Block crawlers from indexing development/staging paths (none currently, but future-proof)
+Disallow: /*.json$
+Disallow: /CODEX_PROMPT.md
+
+# Sitemap location
+Sitemap: https://excrop.com/sitemap.xml

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://excrop.com/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://excrop.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://excrop.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://excrop.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://excrop.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://excrop.com/"/>
+  </url>
+
+  <!-- Products Section -->
+  <url>
+    <loc>https://excrop.com/#products</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Normal White Garlic -->
+  <url>
+    <loc>https://excrop.com/#product-normal-white</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pure White Garlic -->
+  <url>
+    <loc>https://excrop.com/#product-pure-white</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Why Choose Us -->
+  <url>
+    <loc>https://excrop.com/#why</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Factory Gallery -->
+  <url>
+    <loc>https://excrop.com/#gallery</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Export Markets -->
+  <url>
+    <loc>https://excrop.com/#markets</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Quality Assurance -->
+  <url>
+    <loc>https://excrop.com/#quality</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Certifications -->
+  <url>
+    <loc>https://excrop.com/#certifications</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Quote Calculator -->
+  <url>
+    <loc>https://excrop.com/#quote</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Testimonials -->
+  <url>
+    <loc>https://excrop.com/#testimonials</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://excrop.com/#contact</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
