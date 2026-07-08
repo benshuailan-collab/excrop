@@ -23,22 +23,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Normal White Garlic -->
-  <url>
-    <loc>https://excrop.com/#product-normal-white</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Pure White Garlic -->
-  <url>
-    <loc>https://excrop.com/#product-pure-white</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Why Choose Us -->
   <url>
     <loc>https://excrop.com/#why</loc>
@@ -71,12 +55,12 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Certifications -->
+  <!-- FAQ -->
   <url>
-    <loc>https://excrop.com/#certifications</loc>
+    <loc>https://excrop.com/#faq</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Quote Calculator -->
@@ -85,22 +69,6 @@
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <!-- Testimonials -->
-  <url>
-    <loc>https://excrop.com/#testimonials</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Contact -->
-  <url>
-    <loc>https://excrop.com/#contact</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
 </urlset>
