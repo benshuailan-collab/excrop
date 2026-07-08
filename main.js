@@ -60,7 +60,7 @@
         // Update page title
         const titles = {
             en: 'Excrop - Premium Fresh Garlic Exporter from China',
-            zh: '小帅牛大蒜 - 中国优质新鲜大蒜出口商',
+            zh: 'Excrop - 中国优质新鲜大蒜出口商',
             ru: 'Excrop - Экспортер свежего чеснока из Китая',
             ar: 'Excrop - مورد ثوم طازج ممتاز من الصين'
         };
@@ -156,25 +156,52 @@
                 `Quantity: ${data.quantity} tons\n` +
                 `Destination: ${data.port}\n` +
                 `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `${data.phone ? `Phone: ${data.phone}\n` : ''}` +
                 `${data.company ? `Company: ${data.company}\n` : ''}` +
                 `${data.message ? `Notes: ${data.message}\n` : ''}`;
             
             const whatsappUrl = `https://wa.me/8613658980612?text=${encodeURIComponent(msg)}`;
+
+            // Send email via Formsubmit (no registration needed)
+            fetch('https://formsubmit.co/ajax/benshuailan@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: 'New Garlic Inquiry from Excrop.com',
+                    _template: 'table',
+                    Name: data.name,
+                    Email: data.email,
+                    Phone: data.phone || '-',
+                    Company: data.company || '-',
+                    Variety: varietyMap[data.variety] || data.variety,
+                    Size: data.size + 'cm',
+                    Quantity: data.quantity + ' tons',
+                    Destination: data.port,
+                    Notes: data.message || '-'
+                })
+            }).catch(err => console.error('Email send error:', err));
             
             // Show success feedback
             const btn = form.querySelector('.btn-primary');
             const originalText = btn.innerHTML;
-            btn.innerHTML = currentLang === 'zh' ? '✓ 已生成询盘' : 
-                           currentLang === 'ru' ? '✓ Запрос создан' :
-                           currentLang === 'ar' ? '✓ تم إنشاء الاستفسار' :
-                           '✓ Inquiry Created';
+            btn.innerHTML = currentLang === 'zh' ? '✓ 询盘已发送' : 
+                           currentLang === 'ru' ? '✓ Запрос отправлен' :
+                           currentLang === 'ar' ? '✓ تم إرسال الاستفسار' :
+                           '✓ Inquiry Sent';
             btn.style.background = '#2D6A4F';
+            btn.disabled = true;
             
             // Open WhatsApp with the inquiry
             setTimeout(() => {
                 window.open(whatsappUrl, '_blank');
+                form.reset();
                 btn.innerHTML = originalText;
                 btn.style.background = '';
+                btn.disabled = false;
             }, 1500);
         });
     }
