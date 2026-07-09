@@ -101,8 +101,8 @@
   const quoteSuccess=document.getElementById('quoteSuccess');
 
   const basePrices={
-    'normal':{'4.5':680,'5.0':730,'5.5':820,'6.0':950,'6.5':1100},
-    'pure':{'4.5':750,'5.0':820,'5.5':920,'6.0':1080,'6.5':1250}
+    'normal':{'4.5':680,'5.0':730,'5.5':820,'6.0':950},
+    'pure':{'4.5':750,'5.0':820,'5.5':920,'6.0':1080}
   };
   const packAdjust={'mesh10':0,'mesh20':-10,'carton10':40,'carton20':20,'custom':60};
 
@@ -222,4 +222,59 @@
   if(bl.startsWith('zh'))switchLang('zh');
   else if(bl.startsWith('ru'))switchLang('ru');
   else if(bl.startsWith('ar'))switchLang('ar');
+
+  // ===== Certificate Modal =====
+  const certModal=document.getElementById('certModal');
+  const certModalBody=document.getElementById('certModalBody');
+  const certData={
+    gap:{title:'GAP Certification',subtitle:'Good Agricultural Practice'},
+    globalgap:{title:'Global GAP',subtitle:'International Farm Assurance'},
+    haccp:{title:'HACCP',subtitle:'Hazard Analysis Critical Control Points'},
+    iso22000:{title:'ISO 22000',subtitle:'Food Safety Management System'},
+    phytosanitary:{title:'Phytosanitary Certificate',subtitle:'Plant Health Certificate'},
+    origin:{title:'Certificate of Origin',subtitle:'Origin Verification Document'}
+  };
+  function certSvg(key,info){
+    return '<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;background:#fff">'+
+      '<rect width="800" height="600" fill="#fff" stroke="#C9A961" stroke-width="8"/>'+
+      '<rect x="24" y="24" width="752" height="552" fill="none" stroke="#0D2818" stroke-width="2"/>'+
+      '<rect x="40" y="40" width="720" height="520" fill="none" stroke="#C9A961" stroke-width="1" stroke-dasharray="8 4"/>'+
+      '<text x="400" y="95" text-anchor="middle" font-size="26" fill="#0D2818" font-weight="700" font-family="Inter,Segoe UI,sans-serif">CERTIFICATE</text>'+
+      '<text x="400" y="135" text-anchor="middle" font-size="20" fill="#555" font-family="Inter,Segoe UI,sans-serif">'+info.subtitle+'</text>'+
+      '<text x="400" y="195" text-anchor="middle" font-size="18" fill="#555" font-family="Inter,Segoe UI,sans-serif">This is to certify that</text>'+
+      '<text x="400" y="260" text-anchor="middle" font-size="44" fill="#0D2818" font-weight="800" font-family="Inter,Segoe UI,sans-serif">Excrop</text>'+
+      '<text x="400" y="310" text-anchor="middle" font-size="18" fill="#555" font-family="Inter,Segoe UI,sans-serif">Shandong, China</text>'+
+      '<text x="400" y="370" text-anchor="middle" font-size="24" fill="#C9A961" font-weight="700" font-family="Inter,Segoe UI,sans-serif">'+info.title+'</text>'+
+      '<text x="400" y="425" text-anchor="middle" font-size="16" fill="#555" font-family="Inter,Segoe UI,sans-serif">For the export of fresh garlic and related agricultural products</text>'+
+      '<text x="400" y="470" text-anchor="middle" font-size="16" fill="#555" font-family="Inter,Segoe UI,sans-serif">Issued for commercial presentation purposes</text>'+
+      '<circle cx="180" cy="510" r="55" fill="none" stroke="#C9A961" stroke-width="3"/>'+
+      '<text x="180" y="518" text-anchor="middle" font-size="14" fill="#C9A961" font-weight="700" font-family="Inter,Segoe UI,sans-serif">OFFICIAL</text>'+
+      '<text x="180" y="535" text-anchor="middle" font-size="12" fill="#C9A961" font-family="Inter,Segoe UI,sans-serif">SEAL</text>'+
+      '<text x="620" y="505" text-anchor="middle" font-size="16" fill="#555" font-family="Inter,Segoe UI,sans-serif">Authorized Signature</text>'+
+      '<line x1="520" y1="525" x2="720" y2="525" stroke="#555" stroke-width="1"/>'+
+      '</svg>';
+  }
+  function openCertModal(key){
+    const info=certData[key];
+    if(!info||!certModal||!certModalBody)return;
+    certModalBody.innerHTML=certSvg(key,info)+'<p class="cert-modal-caption">This is a presentation certificate. Replace with your official scanned certificate for production use.</p>';
+    certModal.classList.add('active');
+    certModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeCertModal(){
+    if(!certModal)return;
+    certModal.classList.remove('active');
+    certModal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.cert-card[data-cert]').forEach(card=>{
+    card.addEventListener('click',()=>openCertModal(card.dataset.cert));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openCertModal(card.dataset.cert);});
+  });
+  if(certModal){
+    certModal.querySelector('.cert-modal-overlay').addEventListener('click',closeCertModal);
+    certModal.querySelector('.cert-modal-close').addEventListener('click',closeCertModal);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&certModal.classList.contains('active'))closeCertModal();});
+  }
 })();
