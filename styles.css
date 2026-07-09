@@ -62,12 +62,13 @@ img{max-width:100%;display:block}
 .mobile-toggle span{width:24px;height:2px;background:var(--c-white);border-radius:2px;transition:var(--transition)}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#0D2818 0%,#1B4332 50%,#0D2818 100%);overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:#0D2818;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:
   radial-gradient(circle at 20% 50%,rgba(64,145,108,.15) 0%,transparent 50%),
   radial-gradient(circle at 80% 20%,rgba(201,169,97,.1) 0%,transparent 50%),
-  radial-gradient(circle at 50% 80%,rgba(45,106,79,.1) 0%,transparent 50%)}
-.hero-bg-pattern{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 20 Q55 35 55 50 Q55 65 60 75 Q65 65 65 50 Q65 35 60 20 Z M60 75 Q50 80 48 90 Q50 95 60 95 Q70 95 72 90 Q70 80 60 75 Z' fill='%23ffffff'/%3E%3C/svg%3E");background-size:120px}
+  radial-gradient(circle at 50% 80%,rgba(45,106,79,.1) 0%,transparent 50%);z-index:1}
+.hero-bg-pattern{position:absolute;inset:0;z-index:0;opacity:1}
+.hero-trade-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-content{position:relative;z-index:2;max-width:750px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(201,169,97,.15);border:1px solid rgba(201,169,97,.3);border-radius:50px;color:var(--c-accent-2);font-size:.8rem;font-weight:var(--fw-semibold);margin-bottom:24px;animation:fadeInUp .8s ease}
 .hero-badge::before{content:'';width:8px;height:8px;background:var(--c-accent);border-radius:50%;animation:pulse 2s infinite}
@@ -81,6 +82,10 @@ img{max-width:100%;display:block}
 .stat-item:last-child{border-right:none}
 .stat-num{font-size:2.5rem;font-weight:var(--fw-extrabold);color:var(--c-accent);line-height:1}
 .stat-label{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+
+/* Trade route animation */
+.trade-route{animation:routeFlow 3s linear infinite}
+@keyframes routeFlow{to{stroke-dashoffset:-160}}
 
 /* ===== Trust Bar ===== */
 .trust-bar{background:var(--c-white);padding:20px 0;border-bottom:1px solid var(--c-border)}
