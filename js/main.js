@@ -60,18 +60,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ===== Contact Form: check for success redirect =====
-  var urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('sent') === '1') {
-    var successMsg = document.querySelector('.form-success');
-    var contactForm = document.querySelector('#contactForm');
-    if (successMsg && contactForm) {
-      successMsg.classList.add('show');
-      contactForm.style.display = 'none';
-      setTimeout(function() {
-        successMsg.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  // ===== Contact Form Submit via Cloudflare Worker =====
+  var contactForm = document.querySelector('#contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+
+      var formData = new FormData(contactForm);
+      var data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message')
+      };
+
+      fetch('https://excrop-form.benshuailan.workers.dev', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(result) {
+        if (result.success) {
+          var success = document.querySelector('.form-success');
+          if (success) {
+            success.classList.add('show');
+            contactForm.style.display = 'none';
+            setTimeout(function() {
+              success.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }
+        } else {
+          alert('Submission failed: ' + (result.error || 'Unknown error') + '\n\nPlease email us directly at benshuailan@gmail.com');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+      })
+      .catch(function(error) {
+        alert('Network error. Please email us directly at benshuailan@gmail.com');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
+    });
   }
 
   // ===== Active Nav Link =====
