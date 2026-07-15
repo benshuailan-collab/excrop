@@ -78,14 +78,21 @@ document.addEventListener('DOMContentLoaded', function() {
         message: formData.get('message')
       };
 
-      fetch('https://excrop-form.benshuailan.workers.dev', {
+      fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       })
-      .then(function(response) { return response.json(); })
+      .then(function(response) {
+        if (!response.ok) {
+          return response.text().then(function(text) {
+            throw new Error('Server returned ' + response.status + ': ' + text);
+          });
+        }
+        return response.json();
+      })
       .then(function(result) {
         if (result.success) {
           var success = document.querySelector('.form-success');
@@ -97,13 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
           }
         } else {
-          alert('Submission failed: ' + (result.error || 'Unknown error') + '\n\nPlease email us directly at benshuailan@gmail.com');
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
+          throw new Error(result.error || 'Server reported failure');
         }
       })
       .catch(function(error) {
-        alert('Network error. Please email us directly at benshuailan@gmail.com');
+        var errMsg = error && error.message ? error.message : 'Unknown error';
+        var subject = encodeURIComponent('New Inquiry from ' + (data.name || 'Website Visitor'));
+        var body = encodeURIComponent(
+          'Contact Person: ' + (data.name || '') + '\n' +
+          'Email: ' + (data.email || '') + '\n' +
+          'Message:\n' + (data.message || '') + '\n\n' +
+          '---\nSent from ExCrop website contact form'
+        );
+        var mailto = 'mailto:contact@excrop.com?subject=' + subject + '&body=' + body;
+        alert('Network error: ' + errMsg + '\n\nPlease click OK to send your inquiry via email directly, or email us at contact@excrop.com');
+        window.location.href = mailto;
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
       });
