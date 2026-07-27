@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var submitBtn = contactForm.querySelector('button[type="submit"]');
       var originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.innerHTML = '<span class="css-spinner"></span> Sending...';
       submitBtn.disabled = true;
 
       var formData = new FormData(contactForm);
