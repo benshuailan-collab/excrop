@@ -31,7 +31,27 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
   <!-- Google 结构化标记 (Organization + WebSite + Product) -->
-  <script type="application/ld+json">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "@id": "https://excrop.com/#product",
+  "name": "Fresh Normal & Pure White Garlic Wholesale",
+  "image": "https://excrop.com/images/china-garlic-farm.jpg",
+  "description": "High-quality fresh Shandong garlic (Purple Skin & Pure White) in sizes 4.5cm-6.5cm+. Packed in mesh bags or cartons for cold storage export.",
+  "brand": {
+    "@type": "Brand",
+    "name": "ExCrop"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "500.00",
+    "highPrice": "1200.00",
+    "offerCount": "5",
+    "itemCondition": "http://schema.org/NewCondition",
+    "availability": "http://schema.org/InStock"
+  }
+}
   {
     "@context": "https://schema.org",
     "@graph": [
