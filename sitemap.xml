@@ -3,37 +3,43 @@
   <!-- Main Pages -->
   <url>
     <loc>https://excrop.com/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://excrop.com/products</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://excrop.com/garlic-price</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://excrop.com/markets</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://excrop.com/about</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/faq</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/contact</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,170 +47,222 @@
   <!-- Product Pages -->
   <url>
     <loc>https://excrop.com/products/fresh-garlic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://excrop.com/products/purple-skin-garlic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <loc>https://excrop.com/products/normal-white-garlic</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://excrop.com/products/pure-white-garlic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://excrop.com/products/dehydrated-garlic-flakes</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Market Pages -->
+  <!-- Market Pages (Existing) -->
   <url>
     <loc>https://excrop.com/markets/indonesia</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/brazil</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/nigeria</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/saudi-arabia</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/uae</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/malaysia</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/philippines</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/vietnam</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/egypt</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://excrop.com/markets/south-africa</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Knowledge Base -->
+  <!-- Market Pages (New - Country Landing) -->
+  <url>
+    <loc>https://excrop.com/markets/bangladesh</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/markets/kenya</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/markets/pakistan</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Knowledge Base (Original) -->
   <url>
     <loc>https://excrop.com/knowledge/how-to-import-garlic-from-china</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/china-garlic-export-guide</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/garlic-size-standard</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/fresh-garlic-storage-guide</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/garlic-container-loading-guide</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Long-Tail Blog Articles -->
+  <!-- Long-Tail Blog Articles (SEO) -->
   <url>
     <loc>https://excrop.com/knowledge/china-garlic-price-trends</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/how-to-choose-garlic-supplier-china</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/purple-skin-vs-white-garlic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/china-garlic-harvest-season</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/dehydrated-garlic-applications</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/garlic-import-regulations-by-country</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/organic-vs-conventional-garlic</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://excrop.com/knowledge/garlic-shelf-life-preservation</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- B2B Purchasing Guides (New) -->
+  <url>
+    <loc>https://excrop.com/knowledge/how-much-garlic-fits-in-40hq-container</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/how-to-import-garlic-from-china-guide</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/china-fresh-garlic-size-specification-guide</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/china-garlic-export-packaging-options</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/understanding-garlic-fob-qingdao-cif-price-calculation</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
 </urlset>
