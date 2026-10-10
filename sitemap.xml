@@ -333,4 +333,66 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
+
+  <!-- Batch 2 Knowledge Articles (2026-10-11) -->
+  <url>
+    <loc>https://excrop.com/knowledge/cold-stored-garlic-guide</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/china-garlic-2026-2027-season-outlook</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/india-vs-china-garlic-comparison</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/garlic-sprouting-prevention-guide</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/dehydrated-garlic-flakes-sourcing-guide</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/garlic-import-letter-of-credit-payment-guide</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/ramadan-garlic-import-timeline-middle-east</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/china-garlic-export-inspection-phytosanitary-process</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/which-garlic-size-best-value-price-comparison</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://excrop.com/knowledge/garlic-import-freight-costs-guide</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
 </urlset>
