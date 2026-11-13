@@ -75,7 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
       var data = {
         name: formData.get('name'),
         email: formData.get('email'),
-        message: formData.get('message')
+        message: formData.get('message'),
+        website: formData.get('website'),
+        page_url: window.location.href
       };
 
       fetch('/api/contact', {
