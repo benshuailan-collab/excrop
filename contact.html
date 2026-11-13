@@ -30,8 +30,6 @@
     "description": "China garlic supplier and exporter from Shandong.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Luzhuang Village, Baifutu Town, Chengwu County",
-      "addressLocality": "Heze",
       "addressRegion": "Shandong",
       "addressCountry": "CN"
     },
@@ -123,7 +121,7 @@
           <svg class="icon " viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
           <div>
             <h4>Address</h4>
-            <p>Luzhuang Village, Baifutu Town, Chengwu County, Heze City, Shandong Province, China</p>
+            <p>Shandong Province, China</p>
           </div>
         </div>
         <div class="contact-info__item">
@@ -178,6 +176,10 @@
       <div class="contact-form fade-in">
         <h2 style="font-size: 1.5rem; margin-bottom: 24px;">Request a Quote</h2>
         <form id="contactForm" action="/api/contact" method="POST">
+          <div class="form-group" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="form-group">
             <label>Contact Person *</label>
             <input type="text" name="name" required placeholder="Your name">
@@ -211,7 +213,7 @@
   <div class="container">
     <div class="map-placeholder fade-in">
       <svg class="icon " viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5zM4.5 8.88L2 8v9.5l4.5 1.6V8.88L4.5 8.88zm15-1.38L15 8.88V20l4.5-1.6V7.5z"/></svg>
-      <p>Chengwu County, Heze, Shandong, China &mdash; 500km to Qingdao Port</p>
+      <p>Shandong, China &mdash; 500km to Qingdao Port</p>
     </div>
   </div>
 </section>
