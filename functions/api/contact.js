@@ -33,7 +33,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   // Honeypot: silently accept bot submissions without storing or notifying.
-  if (typeof body.website === "string" && body.website.trim()) {
+  if (typeof body.fax_number_check === "string" && body.fax_number_check.trim()) {
     return json({ success: true });
   }
 
@@ -63,11 +63,10 @@ export async function onRequestPost({ request, env }) {
   }
 
   const userAgent = (request.headers.get("User-Agent") || "").slice(0, 500);
-  const inserted = await env.DB.prepare(
-    "INSERT INTO inquiries (name, email, message, page_url, ip_hash, user_agent, status, email_status) VALUES (?, ?, ?, ?, ?, ?, 'new', 'pending')"
-  ).bind(name, email, message || null, pageUrl || null, ipHash, userAgent).run();
-
-  const inquiryId = inserted.meta?.last_row_id ?? null;
+  const inquiryId = crypto.randomUUID();
+  await env.DB.prepare(
+    "INSERT INTO inquiries (id, name, email, message, page_url, ip_hash, user_agent, status, email_status) VALUES (?, ?, ?, ?, ?, ?, ?, 'new', 'pending')"
+  ).bind(inquiryId, name, email, message || null, pageUrl || null, ipHash, userAgent).run();
   let notificationSent = false;
 
   if (env.RESEND_API_KEY && env.NOTIFY_EMAIL && env.FROM_EMAIL) {
