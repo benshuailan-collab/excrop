@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         name: formData.get('name'),
         email: formData.get('email'),
         message: formData.get('message'),
-        website: formData.get('website'),
+        fax_number_check: formData.get('fax_number_check'),
         page_url: window.location.href
       };
 
