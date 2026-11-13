@@ -15,6 +15,7 @@ async function sha256(value) {
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json({ success: false, error: "Inquiry storage is not configured." }, 503);
+  if (!env.IP_HASH_SALT) return json({ success: false, error: "Contact API security configuration is incomplete." }, 503);
 
   const contentType = request.headers.get("content-type") || "";
   if (!contentType.includes("application/json")) {
@@ -52,7 +53,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-  const ipHash = await sha256(ip + (env.IP_HASH_SALT || "excrop-contact-v1"));
+  const ipHash = await sha256(ip + env.IP_HASH_SALT);
   const recent = await env.DB.prepare(
     "SELECT COUNT(*) AS total FROM inquiries WHERE ip_hash = ? AND created_at >= datetime('now', '-10 minutes')"
   ).bind(ipHash).first();
