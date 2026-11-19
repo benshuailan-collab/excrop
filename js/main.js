@@ -60,6 +60,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ===== GA4 Conversion Event Tracking =====
+  function trackEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  }
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) {
+    a.addEventListener('click', function() { trackEvent('contact', { method: 'WhatsApp' }); });
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+    a.addEventListener('click', function() { trackEvent('contact', { method: 'Email' }); });
+  });
+  document.querySelectorAll('.footer__social a[target="_blank"]').forEach(function(a) {
+    a.addEventListener('click', function() { trackEvent('social_outbound', { social_network: (a.getAttribute('aria-label') || 'unknown').toLowerCase() }); });
+  });
+
   // ===== Contact Form Submit via Cloudflare Worker =====
   var contactForm = document.querySelector('#contactForm');
   if (contactForm) {

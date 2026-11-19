@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects
+# 301: duplicate "how to import garlic" article merged 2026-11-20 (keyword consolidation, canonical = -guide version)
+/knowledge/how-to-import-garlic-from-china.html /knowledge/how-to-import-garlic-from-china-guide.html 301
+/knowledge/how-to-import-garlic-from-china /knowledge/how-to-import-garlic-from-china-guide 301
+
+# 301: legacy purple garlic product page removed 2026-11-20 (product line discontinued)
+/products/purple-skin-garlic.html /products/normal-white-garlic.html 301
+/products/purple-skin-garlic /products/normal-white-garlic 301
