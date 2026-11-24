@@ -143,6 +143,72 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ===== Price Page Quote Form (garlic-price.html) -> D1 backend =====
+  var quoteForm = document.querySelector('#quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var qBtn = quoteForm.querySelector('button[type="submit"]');
+      var qOrig = qBtn.innerHTML;
+      qBtn.innerHTML = '<span class="css-spinner"></span> Sending...';
+      qBtn.disabled = true;
+
+      var f = new FormData(quoteForm);
+      var g = function(k) { return (f.get(k) || '').toString().trim(); };
+      var detail = [
+        'Company: ' + g('Company'),
+        'Phone / WhatsApp: ' + g('Phone'),
+        'Garlic Variety: ' + g('Variety'),
+        'Size: ' + g('Size'),
+        'Packing: ' + g('Packing'),
+        'Destination Port: ' + g('Destination_Port'),
+        'Incoterms: ' + g('Incoterms'),
+        'Additional Requirements: ' + g('Message')
+      ].join('\n');
+      var qData = {
+        name: g('Name'),
+        email: g('Email'),
+        message: detail,
+        fax_number_check: g('fax_number_check'),
+        page_url: window.location.href
+      };
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(qData)
+      })
+      .then(function(response) {
+        if (!response.ok) {
+          return response.text().then(function(text) {
+            throw new Error('Server returned ' + response.status + ': ' + text);
+          });
+        }
+        return response.json();
+      })
+      .then(function(result) {
+        if (!result.success) { throw new Error(result.error || 'Server reported failure'); }
+        trackEvent('generate_lead', { form_type: 'price_quote', delivery: 'api' });
+        quoteForm.style.display = 'none';
+        var qSuccess = document.querySelector('#quoteSuccess');
+        if (qSuccess) {
+          qSuccess.classList.add('show');
+          setTimeout(function() { qSuccess.scrollIntoView({ behavior: 'smooth' }); }, 100);
+        }
+      })
+      .catch(function(error) {
+        var errMsg = error && error.message ? error.message : 'Unknown error';
+        var subject = encodeURIComponent('Garlic Price Quote Request from ' + (qData.name || 'Website Visitor'));
+        var mailto = 'mailto:contact@excrop.com?subject=' + subject + '&body=' + encodeURIComponent(detail + '\n\nContact: ' + qData.name + '\nEmail: ' + qData.email);
+        trackEvent('generate_lead', { form_type: 'price_quote', delivery: 'mailto_fallback' });
+        alert('Network error: ' + errMsg + '\n\nPlease click OK to send your request via email directly, or email us at contact@excrop.com');
+        window.location.href = mailto;
+        qBtn.innerHTML = qOrig;
+        qBtn.disabled = false;
+      });
+    });
+  }
+
   // ===== Active Nav Link =====
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav a').forEach(function(link) {

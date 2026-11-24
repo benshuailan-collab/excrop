@@ -251,11 +251,14 @@
         <p><strong>How is the China garlic price per ton calculated?</strong> Export prices are quoted FOB Qingdao in USD per metric ton (MT). One 40HQ reefer container holds about 28 MT, so the container price is roughly the per-ton price &times; 28 plus freight. The garlic price today depends on three factors: bulb size (5.0cm&ndash;6.5cm+), variety (normal white vs pure white), and packing (mesh bag vs carton).</p>
         <p><strong>Why does the garlic price change during the year?</strong> China&rsquo;s garlic harvest lands in June, and cold-stored stock from Shandong is released steadily through the rest of the year. Prices typically firm up ahead of the Ramadan buying season, when importers in <a href="markets/saudi-arabia" style="color:var(--green);font-weight:600">Saudi Arabia</a>, <a href="markets/egypt" style="color:var(--green);font-weight:600">Egypt</a> and <a href="markets/bangladesh" style="color:var(--green);font-weight:600">Bangladesh</a> book containers early to lock the price. Buying before the peak window is the simplest way to save 5&ndash;10% on a full-container load.</p>
         <p><strong>Do you quote CIF, not just FOB?</strong> Yes &mdash; we quote FOB Qingdao, CIF to your port, or CFR. Many buyers in <a href="markets/kenya" style="color:var(--green);font-weight:600">Kenya</a>, <a href="markets/brazil" style="color:var(--green);font-weight:600">Brazil</a> and the <a href="markets/uae" style="color:var(--green);font-weight:600">UAE</a> ask for landed-cost estimates including freight and insurance. Send us your destination port and size requirement and you will have a firm per-ton quote within 24 hours.</p>
+        <p><strong>What is the garlic price per kg, and how does it relate to the price per ton?</strong> Buyers often ask for both the <em>China garlic price per ton</em> and a per-kilo figure. As a quick guide, divide the FOB Qingdao USD/MT number by 1,000 (so $800/MT &asymp; $0.80/kg at origin), then add cold-chain freight, insurance and destination charges for a landed CIF price. Whether you search <em>"fresh garlic price China"</em>, <em>"Chinese garlic price"</em> or <em>"garlic price in China today"</em>, the figure tracks the June harvest and the release of cold-stored stock &mdash; so always request a live quote instead of relying on a published index. See our <a href="products/normal-white-garlic" style="color:var(--green);font-weight:600">normal white garlic</a> and <a href="products/pure-white-garlic" style="color:var(--green);font-weight:600">pure white garlic</a> specification pages for size-by-size grades.</p>
       </div>
       <h2 class="section__title">Request a Detailed Quote</h2>
       <p class="section__desc">Fill in your requirements &mdash; we'll send a firm offer within 24 hours.</p>
     </div>
-    <form class="quote-form" action="mailto:contact@excrop.com" method="post" enctype="text/plain">
+    <form class="quote-form" id="quoteForm">
+      <!-- Honeypot: hidden from humans, bots fill it and get silently rejected -->
+      <input type="text" name="fax_number_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Your Name *</label>
@@ -334,6 +337,10 @@
         Or Chat on WhatsApp for Instant Reply
       </a>
     </form>
+    <div class="form-success" id="quoteSuccess" style="text-align:center;padding:36px 20px;background:#f3f8ef;border:1px solid #d8e6cd;border-radius:10px;margin-top:20px;">
+      <h3 style="color:var(--green);font-size:1.4rem;margin-bottom:10px;">Thank you &mdash; your quote request is in!</h3>
+      <p style="color:var(--gray-dark);">We received your requirements and will send a firm FOB / CIF offer within 24 hours. For an instant reply, <a href="https://wa.me/8613658980612" target="_blank" style="color:var(--green);font-weight:600;">chat with us on WhatsApp</a>.</p>
+    </div>
   </div>
 </section>
 
