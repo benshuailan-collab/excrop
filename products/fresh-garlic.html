@@ -23,26 +23,43 @@
   <!-- Product Schema (JSON-LD) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Fresh Garlic (Normal White & Pure White)",
-    "description": "Export-quality fresh garlic from Shandong, China. Available in 4.5cm to 6.5cm+ sizes. GLOBALG.A.P. and HACCP certified. Cold-chain logistics at -2°C to -3°C for maximum freshness.",
-    "brand": {"@type": "Brand", "name": "ExCrop"},
-    "category": "Agricultural Products > Vegetables > Garlic",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "seller": {"@type": "Organization", "name": "Heneng International Trade Group (Shandong) Co., Ltd."}
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Fresh Garlic (Normal White & Pure White)",
+  "description": "Export-quality fresh garlic from Shandong, China. Available in 4.5cm to 6.5cm+ sizes. GLOBALG.A.P. and HACCP certified. Cold-chain logistics at -2°C to -3°C for maximum freshness.",
+  "brand": {
+    "@type": "Brand",
+    "name": "ExCrop"
+  },
+  "category": "Agricultural Products > Vegetables > Garlic",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Available Sizes",
+      "value": "4.5cm, 5.0cm, 5.5cm, 6.0cm, 6.5cm+"
     },
-    "additionalProperty": [
-      {"@type": "PropertyValue", "name": "Available Sizes", "value": "4.5cm, 5.0cm, 5.5cm, 6.0cm, 6.5cm+"},
-      {"@type": "PropertyValue", "name": "Origin", "value": "Shandong, China"},
-      {"@type": "PropertyValue", "name": "Certifications", "value": "GLOBALG.A.P., HACCP, Phytosanitary Certificate"},
-      {"@type": "PropertyValue", "name": "Minimum Order Quantity", "value": "1 x 40' Reefer Container (28-30 MT)"},
-      {"@type": "PropertyValue", "name": "Storage Temperature", "value": "-2°C to -3°C"}
-    ]
-  }
+    {
+      "@type": "PropertyValue",
+      "name": "Origin",
+      "value": "Shandong, China"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Certifications",
+      "value": "GLOBALG.A.P., HACCP, Phytosanitary Certificate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Minimum Order Quantity",
+      "value": "1 x 40' Reefer Container (28-30 MT)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Storage Temperature",
+      "value": "-2°C to -3°C"
+    }
+  ]
+}
   </script>
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
